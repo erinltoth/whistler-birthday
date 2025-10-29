@@ -1,1 +1,237 @@
+```html:whistler_75th_celebration.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited! A 75th Birthday Celebration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef3f2; /* Very light rose */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-btn {
+            @apply px-4 py-2 font-medium text-sm rounded-lg transition-all duration-200 shadow-sm;
+        }
+        .nav-btn-active {
+            @apply bg-rose-800 text-white;
+        }
+        .nav-btn-inactive {
+            @apply bg-white text-rose-800 border border-rose-200 hover:bg-rose-50;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px; 
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="text-stone-700">
 
+    <main class="max-w-3xl mx-auto p-4 sm:p-8">
+        
+        <header class="text-center my-12">
+            <h1 class="text-4xl sm:text-5xl font-bold text-rose-900">Get ready to celebrate...</h1>
+            <h2 class="text-6xl sm:text-7xl font-bold text-rose-700 mt-2">You!</h2>
+            <p class="text-xl text-stone-600 mt-6 max-w-xl mx-auto">
+                To our wonderful Mums, in honour of your milestone 75th birthdays, you are officially invited on a special celebratory weekend getaway. We want to spoil you, pamper you, and toast to the amazing women you are.
+            </p>
+        </header>
+
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg my-12">
+            <h3 class="text-3xl font-bold text-rose-800 text-center mb-6">The Celebration Details</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+                
+                <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                    <span class="text-4xl">🎁</span>
+                    <h4 class="font-bold text-rose-900 mt-2">What</h4>
+                    <p class="text-sm text-stone-600">A 75th Birthday Celebration Weekend!</p>
+                </div>
+                
+                <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                    <span class="text-4xl">📍</span>
+                    <h4 class="font-bold text-rose-900 mt-2">Where</h4>
+                    <p class="text-sm text-stone-600">Whistler, British Columbia</p>
+                </div>
+
+                <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                    <span class="text-4xl">🗓️</span>
+                    <h4 class="font-bold text-rose-900 mt-2">When</h4>
+                    <p class="text-sm text-stone-600">Nov 21st – Nov 23rd</p>
+                </div>
+
+                <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                    <span class="text-4xl">👩‍👩‍👧‍👧</span>
+                    <h4 class="font-bold text-rose-900 mt-2">Who</h4>
+                    <p class="text-sm text-stone-600">Just the four of us!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-12">
+            <h3 class="text-3xl font-bold text-rose-800 text-center mb-6">A Peek at the Plan...</h3>
+            
+            <nav class="flex justify-center gap-2 sm:gap-4 mb-4" id="plan-navigation">
+                <button id="btn-home" data-target="content-home" class="nav-btn nav-btn-active">Our Home Base 🏡</button>
+                <button id="btn-spa" data-target="content-spa" class="nav-btn nav-btn-inactive">The Main Event 🧖‍♀️</button>
+                <button id="btn-ideas" data-target="content-ideas" class="nav-btn nav-btn-inactive">Weekend Ideas 🥂</button>
+            </nav>
+
+            <div id="plan-content" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg min-h-[250px]">
+                
+                <div id="content-home" class="plan-panel">
+                    <h4 class="text-2xl font-bold text-rose-800 mb-3">Our Cozy Condo</h4>
+                    <p class="text-lg mb-2">We have a cozy condo waiting for us right in Whistler Village! 🏡</p>
+                    <p class="text-stone-600">This will be our home base for a weekend of pure relaxation and fun. Everything will be just a short, flat stroll away.</p>
+                </div>
+                
+                <div id="content-spa" class="plan-panel hidden">
+                    <h4 class="text-2xl font-bold text-rose-800 mb-3">Saturday is All About You!</h4>
+                    <p class="text-lg mb-2">We have only one thing set in stone... 🧖‍♀️</p>
+                    <p class="text-stone-600">We'll be spending the day completely unwinding in the tranquil, silent forest oasis of the <strong class="font-medium text-rose-900">Scandinave Spa</strong>. Get ready for total relaxation.</p>
+                </div>
+
+                <div id="content-ideas" class="plan-panel hidden">
+                    <h4 class="text-2xl font-bold text-rose-800 mb-3">...And the Rest is for Fun!</h4>
+                    <p class="text-stone-600 mb-4">Other than that, our plan is to simply enjoy our time together. We'll...</p>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-center"><span class="text-2xl mr-3">🚶‍♀️</span> Take gentle strolls through the magical, light-filled village</li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🥂</span> Enjoy a few special celebratory dinners</li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">☕</span> Sip hot chocolate (or wine or beer or cocktails!) by a warm fire</li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🎨</span> Perhaps browse the beautiful Audain Art Museum or Squamish Lil'wat Cultural Centre</li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🥐</span> And cap off the weekend with a delicious farewell brunch on Sunday.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-12">
+            <h3 class="text-3xl font-bold text-rose-800 text-center mb-6">Our Weekend Vibe</h3>
+            <p class="text-center text-stone-600 mb-6 max-w-md mx-auto">We've broken down the weekend's agenda. As you can see, the top priority is pure relaxation!</p>
+            <div class="chart-container">
+                <canvas id="vibeChart"></canvas>
+            </div>
+        </section>
+
+        <section class="text-center my-12 bg-rose-800 text-white p-8 sm:p-10 rounded-xl shadow-lg">
+            <h3 class="text-3xl font-bold mb-4" style="font-family: 'Lora', serif;">All You Have to Do is Pack!</h3>
+            <p class="text-xl text-rose-100 mb-6">This entire weekend is dedicated to celebrating you both. Just pack a bag, show up, and let us take care of the rest. We can't wait to make some wonderful new memories with you.</p>
+            <p class="text-2xl font-bold text-white mt-8">We love you!</p>
+            <p class="text-2xl mt-2" style="font-family: 'Lora', serif; font-style: italic;">Sarah & Erin</p>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            function initInteractivity() {
+                const nav = document.getElementById('plan-navigation');
+                const panels = document.getElementById('plan-content').querySelectorAll('.plan-panel');
+                const buttons = nav.querySelectorAll('.nav-btn');
+
+                nav.addEventListener('click', (e) => {
+                    const clickedButton = e.target.closest('.nav-btn');
+                    if (!clickedButton) return;
+
+                    const targetId = clickedButton.getAttribute('data-target');
+                    
+                    buttons.forEach(btn => {
+                        btn.classList.remove('nav-btn-active');
+                        btn.classList.add('nav-btn-inactive');
+                    });
+                    
+                    clickedButton.classList.add('nav-btn-active');
+                    clickedButton.classList.remove('nav-btn-inactive');
+
+                    panels.forEach(panel => {
+                        if (panel.id === targetId) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
+            function initChart() {
+                const ctx = document.getElementById('vibeChart').getContext('2d');
+                
+                const data = {
+                    labels: ['Relaxation (Spa!)', 'Celebratory Dinners', 'Cozy Village Time', 'Culture & Brunch'],
+                    datasets: [{
+                        label: 'Weekend Vibe',
+                        data: [50, 20, 15, 15],
+                        backgroundColor: [
+                            '#831843', // rose-900
+                            '#be123c', // rose-700
+                            '#f43f5e', // rose-500
+                            '#fb7185'  // rose-400
+                        ],
+                        borderColor: '#fef3f2', 
+                        borderWidth: 2
+                    }]
+                };
+
+                const options = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#44403c', // stone-700
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                };
+
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: options
+                });
+            }
+
+            initInteractivity();
+            initChart();
+        });
+    </script>
+</body>
+</html>
+```
